@@ -14,7 +14,7 @@ const allPartners = [...partners, ...partners, ...partners, ...partners];
 
 export default function PartnersSection() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-headline font-bold mb-4">Trusted by Industry Leaders</h2>

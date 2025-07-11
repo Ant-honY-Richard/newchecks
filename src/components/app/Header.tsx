@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, Briefcase } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Sheet,
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -38,7 +39,7 @@ export default function Header() {
     <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", isScrolled ? "bg-background/80 backdrop-blur-sm border-b border-border" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#home" className="flex items-center gap-2">
-            <Briefcase className="h-8 w-8 text-primary" />
+            <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1742013327/newchecks-logo_b28nsg.png" alt="Newchecks Solutions Logo" width={40} height={40} />
             <span className="text-xl font-headline font-bold text-foreground">Newchecks Solutions</span>
         </Link>
 
@@ -70,7 +71,7 @@ export default function Header() {
                         <SheetHeader className="mb-8">
                         <SheetTitle>
                             <Link href="#home" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                                <Briefcase className="h-8 w-8 text-primary" />
+                                <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1742013327/newchecks-logo_b28nsg.png" alt="Newchecks Solutions Logo" width={40} height={40} />
                                 <span className="text-xl font-headline font-bold text-foreground">Newchecks</span>
                             </Link>
                         </SheetTitle>

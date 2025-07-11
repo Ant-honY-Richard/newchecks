@@ -87,10 +87,21 @@ body {
 .partners-logo-slider {
   overflow: hidden;
   padding: 60px 0;
-  background: hsl(var(--background));
+  background: 
+    linear-gradient(270deg, #FFD700 0%, #F0C400 25%, #D4AF37 50%, #B8860B 75%, #A67C00 100%),
+    hsl(var(--background));
+  background-size: 200% 200%;
+  animation: gold-pattern 15s ease infinite;
   white-space: nowrap;
   position: relative;
 }
+
+@keyframes gold-pattern {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
 
 .partners-logo-slider:before,
 .partners-logo-slider:after {
@@ -124,14 +135,14 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 2rem;
-  filter: grayscale(1);
-  opacity: 0.8;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   transition: all 0.3s ease-in-out;
 }
 
 .partners-logo-slider .slide:hover {
-    filter: grayscale(0);
-    opacity: 1;
     transform: scale(1.1);
 }
 

@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Briefcase } from 'lucide-react';
+import { Facebook, Twitter, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -9,12 +10,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="md:col-span-2 lg:col-span-2">
             <Link href="#home" className="flex items-center gap-2 mb-4">
-              <Briefcase className="h-8 w-8 text-primary" />
+              <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1742013327/newchecks-logo_b28nsg.png" alt="Newchecks Solutions Logo" width={40} height={40} />
               <span className="text-xl font-headline font-bold text-foreground">Newchecks Solutions</span>
             </Link>
-            <p className="mb-6 max-w-sm">
+            <p className="mb-4 max-w-sm">
               Your trusted partner for Permanent Staffing, Contract Staffing, Outsourcing, Payroll, and Background Verification services. Empowering businesses with tailored HR solutions.
             </p>
+            <p className="text-primary font-semibold italic mb-6">"we work by your trust"</p>
             <div className="flex space-x-4">
               <Button asChild variant="outline" size="icon" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <a href="#" aria-label="Facebook"><Facebook className="h-5 w-5" /></a>
