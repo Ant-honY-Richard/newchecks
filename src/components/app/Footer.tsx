@@ -9,8 +9,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="md:col-span-2 lg:col-span-2">
-            <Link href="#home" className="flex items-center gap-2 mb-4">
-              <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1752213585/header_logo_newchecks_zd9b1g.png" alt="Newchecks Solutions Logo" width={180} height={40} />
+             <Link href="#home" className="flex items-center gap-2 mb-4 text-2xl font-bold text-foreground font-headline">
+              Newchecks Solutions
             </Link>
             <p className="mb-4 max-w-sm">
               Your trusted partner for Permanent Staffing, Contract Staffing, Outsourcing, Payroll, and Background Verification services. Empowering businesses with tailored HR solutions.

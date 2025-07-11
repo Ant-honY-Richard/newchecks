@@ -58,7 +58,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="w-full h-full flex justify-center items-center">
              <Image
-              src="https://placehold.co/700x532.png"
+              src="https://images.unsplash.com/photo-1521737852582-1d34b3595f9c?q=80&w=700"
               width={700}
               height={532}
               alt="Team discussing HR strategies"
