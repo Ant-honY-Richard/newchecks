@@ -1,5 +1,5 @@
 
-import { blogPosts, BlogPost } from '@/components/app/BlogSection';
+import { blogPosts, type BlogPost } from '@/lib/blog-data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/components/app/Header';
