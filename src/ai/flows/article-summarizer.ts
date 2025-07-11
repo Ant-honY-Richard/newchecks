@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -17,7 +18,7 @@ const ArticleSummarizerInputSchema = z.object({
 export type ArticleSummarizerInput = z.infer<typeof ArticleSummarizerInputSchema>;
 
 const ArticleSummarizerOutputSchema = z.object({
-  summary: z.string().describe('A concise summary of the HR article.'),
+  summary: z.string().describe('A concise summary of the HR article, formatted as a single paragraph.'),
 });
 export type ArticleSummarizerOutput = z.infer<typeof ArticleSummarizerOutputSchema>;
 
@@ -29,7 +30,13 @@ const summarizeArticlePrompt = ai.definePrompt({
   name: 'summarizeArticlePrompt',
   input: {schema: ArticleSummarizerInputSchema},
   output: {schema: ArticleSummarizerOutputSchema},
-  prompt: `You are an expert HR article summarizer.  Please provide a concise summary of the following article:\n\n{{{articleText}}}`,
+  prompt: `You are an expert HR article summarizer. Your task is to provide a concise, single-paragraph summary of the following article. The summary should capture the main points and key takeaways of the text.
+
+Here is the article:
+---
+{{{articleText}}}
+---
+`,
 });
 
 const summarizeArticleFlow = ai.defineFlow(
