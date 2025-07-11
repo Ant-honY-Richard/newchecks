@@ -39,8 +39,7 @@ export default function Header() {
     <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", isScrolled ? "bg-background/80 backdrop-blur-sm border-b border-border" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="#home" className="flex items-center gap-2">
-            <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1742013327/newchecks-logo_b28nsg.png" alt="Newchecks Solutions Logo" width={40} height={40} />
-            <span className="text-xl font-headline font-bold text-foreground">Newchecks Solutions</span>
+            <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1752213585/header_logo_newchecks_zd9b1g.png" alt="Newchecks Solutions Logo" width={180} height={40} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
@@ -71,8 +70,7 @@ export default function Header() {
                         <SheetHeader className="mb-8">
                         <SheetTitle>
                             <Link href="#home" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                                <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1742013327/newchecks-logo_b28nsg.png" alt="Newchecks Solutions Logo" width={40} height={40} />
-                                <span className="text-xl font-headline font-bold text-foreground">Newchecks</span>
+                                <Image src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1752213585/header_logo_newchecks_zd9b1g.png" alt="Newchecks Solutions Logo" width={180} height={40} />
                             </Link>
                         </SheetTitle>
                         </SheetHeader>

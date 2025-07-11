@@ -22,6 +22,7 @@ export default function PartnersSection() {
         </div>
       </div>
       <div className="partners-logo-slider">
+        <div className="shimmer"></div>
         <div className="slide-track">
           {allPartners.map((partner, index) => (
             <div key={index} className="slide" title={partner.alt}>
