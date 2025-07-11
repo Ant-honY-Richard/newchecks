@@ -1,6 +1,9 @@
 "use server";
 
 import { z } from "zod";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactFormSchema = z.object({
   name: z.string(),
@@ -9,20 +12,30 @@ const contactFormSchema = z.object({
 });
 
 export async function handleContactForm(values: z.infer<typeof contactFormSchema>) {
-  // This is a server action.
-  // In a real application, you would use a service like Resend, SendGrid, or Nodemailer to send an email.
-  // For this example, we'll just log the data to the console to simulate the action.
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "Newchecks Contact Form <onboarding@resend.dev>", // This needs to be a verified domain on Resend.
+      to: "Hr@newcheckssolutions.com",
+      subject: "New Contact Form Submission",
+      reply_to: values.email,
+      html: `
+        <h1>New Contact Form Submission</h1>
+        <p><strong>Name:</strong> ${values.name}</p>
+        <p><strong>Email:</strong> ${values.email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${values.message}</p>
+      `,
+    });
 
-  console.log("Received contact form submission:");
-  console.log("Name:", values.name);
-  console.log("Email:", values.email);
-  console.log("Message:", values.message);
-  
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
-  // You can throw an error here to test the error state in the form.
-  // throw new Error("Failed to send message.");
+    if (error) {
+      console.error("Resend error:", error);
+      throw new Error("Failed to send message.");
+    }
 
-  return { success: true, message: "Message sent successfully!" };
+    console.log("Email sent successfully:", data);
+    return { success: true, message: "Message sent successfully!" };
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw new Error("Failed to send message.");
+  }
 }
