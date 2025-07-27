@@ -58,7 +58,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="w-full h-full flex justify-center items-center">
              <Image
-              src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1752215963/about_image_xnfkau.jpg"
+              src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1753452674/662a3f9c-6c2a-4c85-82f4-bced987abe26_jphi8e.png"
               width={700}
               height={532}
               alt="Team discussing HR strategies"

@@ -85,14 +85,14 @@ export default function ContactSection() {
                         <Mail className="w-6 h-6 text-primary mt-1" />
                         <div>
                             <h4 className="font-semibold text-foreground">Email</h4>
-                            <a href="mailto:Hr@newcheckssolutions.com" className="text-muted-foreground hover:text-primary transition-colors">Hr@newcheckssolutions.com</a>
+                            <a href="mailto:Hr@newcheckssolutions.com" className="text-muted-foreground hover:text-primary transition-colors">hr@newcheckssolutions.com</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">
                         <MapPin className="w-6 h-6 text-primary mt-1" />
                         <div>
                             <h4 className="font-semibold text-foreground">Address</h4>
-                            <p className="text-muted-foreground">#428, 2nd Floor, 80 Feet Road, 6th Block Koramangala, Bangalore</p>
+                            <p className="text-muted-foreground">#435, 3rd floor, 80 ft road, 18th main, 6th block, Bangalore</p>
                         </div>
                     </div>
                 </div>
