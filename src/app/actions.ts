@@ -21,8 +21,6 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
   const resend = new Resend(apiKey);
 
   try {
-    // Note: The 'from' address domain must be verified in your Resend account.
-    // Using a generic 'noreply@yourdomain.com' is a common practice.
     const { data, error } = await resend.emails.send({
       from: "Newchecks Contact Form <noreply@newcheckssolutions.com>",
       to: "hr@newcheckssolutions.com",
