@@ -10,6 +10,8 @@ const contactFormSchema = z.object({
 });
 
 export async function handleContactForm(values: z.infer<typeof contactFormSchema>) {
+    console.log("Received contact form submission:", values);
+
     const validatedFields = contactFormSchema.safeParse(values);
 
     if (!validatedFields.success) {
