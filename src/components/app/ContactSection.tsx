@@ -16,7 +16,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { handleContactForm } from "@/app/actions"
 import { Phone, Mail, MapPin } from "lucide-react"
 
 const formSchema = z.object({
@@ -45,16 +44,26 @@ export default function ContactSection() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
-            const result = await handleContactForm(values);
-            if (result.success) {
+            const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams(values).toString()
+            });
+
+            const result = await response.json();
+
+            if (result.result === "success") {
                 toast({
-                  title: "Message Sent!",
-                  description: "Thank you for contacting us. We will get back to you shortly.",
-                })
+                    title: "Message Sent!",
+                    description: "Thank you for contacting us. We will get back to you shortly.",
+                });
                 form.reset();
             } else {
-               throw new Error("An unknown error occurred on success path.");
+                throw new Error(result.message || "Something went wrong with Google Sheets.");
             }
+
         } catch (error) {
             console.error("Submission error:", error);
             const errorMessage = error instanceof Error ? error.message : "There was a problem with your request. Please try again.";
@@ -62,7 +71,7 @@ export default function ContactSection() {
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
                 description: errorMessage,
-            })
+            });
         }
     }
 
