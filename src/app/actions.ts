@@ -35,7 +35,6 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
             from: "Newchecks Contact <onboarding@resend.dev>",
             to: "hr@newcheckssolutions.com",
             subject: `New Contact Form Submission from ${name}`,
-            reply_to: email,
             html: `
                 <h1>New Contact Form Submission</h1>
                 <p>You have received a new message from the contact form on your website.</p>
