@@ -45,12 +45,17 @@ export default function ContactSection() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
-            await handleContactForm(values);
-            toast({
-                title: "Message Sent!",
-                description: "Thank you for contacting us. We will get back to you shortly.",
-            });
-            form.reset();
+            const result = await handleContactForm(values);
+
+            if (result?.success) {
+                toast({
+                    title: "Message Sent!",
+                    description: "Thank you for contacting us. We will get back to you shortly.",
+                });
+                form.reset();
+            } else {
+                 throw new Error("Submission was not successful.");
+            }
         } catch (error) {
             console.error("Submission error:", error);
             const errorMessage = error instanceof Error ? error.message : "There was a problem with your request. Please try again.";

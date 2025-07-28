@@ -20,7 +20,7 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-        throw new Error("Server configuration error: API key is missing.");
+        throw new Error("Server configuration error: RESEND_API_KEY is missing.");
     }
     
     const resend = new Resend(apiKey);
@@ -44,7 +44,8 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
 
         if (error) {
             console.error("Resend API Error:", error);
-            throw new Error(`Failed to send email: ${error.message}`);
+            // Throw a more descriptive error from the Resend response
+            throw new Error(`Failed to send email. Resend error: ${error.message}`);
         }
 
         if (!data || !data.id) {
@@ -57,10 +58,8 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
 
     } catch (error) {
         console.error("Error in handleContactForm:", error);
-        if (error instanceof Error) {
-            // Re-throw the original error message, which will be more specific.
-            throw new Error(error.message);
-        }
-        throw new Error("An unexpected error occurred while sending the message.");
+        // Ensure we always have a string message
+        const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
+        throw new Error(errorMessage);
     }
 }
