@@ -10,24 +10,14 @@ const contactFormSchema = z.object({
 });
 
 export async function handleContactForm(values: z.infer<typeof contactFormSchema>) {
-    console.log("Received contact form submission:", values);
-
-    const validatedFields = contactFormSchema.safeParse(values);
-
-    if (!validatedFields.success) {
-        throw new Error("Invalid form data provided.");
-    }
-
-    const { name, email, message } = validatedFields.data;
-    const googleScriptUrl = "https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec";
-
+    console.log("Received data in server action:", values);
     try {
         const formData = new FormData();
-        formData.append("name", name);
-        formData.append("email", email);
-        formData.append("message", message);
+        formData.append("name", values.name);
+        formData.append("email", values.email);
+        formData.append("message", values.message);
 
-        const response = await fetch(googleScriptUrl, {
+        const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
             method: "POST",
             body: formData,
         });
@@ -35,7 +25,6 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
         if (response.ok) {
             return { success: true, message: "Message sent successfully!" };
         } else {
-            // Log the response status and text for debugging on the server
             const errorText = await response.text();
             console.error("Google Sheets submission failed:", response.status, errorText);
             throw new Error(`Failed to submit to Google Sheets. Status: ${response.status}`);
