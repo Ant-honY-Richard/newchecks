@@ -17,7 +17,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Phone, Mail, MapPin } from "lucide-react"
-import { handleContactForm } from "@/app/actions"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -45,16 +44,22 @@ export default function ContactSection() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
-            const result = await handleContactForm(values);
-
-            if (result?.success) {
+            const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(values),
+            });
+    
+            if (response.ok) {
                 toast({
-                    title: "Message Sent!",
-                    description: "Thank you for contacting us. We will get back to you shortly.",
+                  title: "Message Sent!",
+                  description: "Thank you for contacting us. We will get back to you shortly.",
                 });
                 form.reset();
             } else {
-                 throw new Error("Submission was not successful.");
+                throw new Error("Failed to submit to Google Sheets.");
             }
         } catch (error) {
             console.error("Submission error:", error);
