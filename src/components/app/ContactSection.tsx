@@ -1,3 +1,4 @@
+
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -17,6 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Phone, Mail, MapPin } from "lucide-react"
+import { handleContactForm } from "@/app/actions"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -44,31 +46,23 @@ export default function ContactSection() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
       try {
-        const formData = new FormData();
-        formData.append("name", values.name);
-        formData.append("email", values.email);
-        formData.append("message", values.message);
+        const result = await handleContactForm(values);
     
-        const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
-          method: "POST",
-          body: formData,
-        });
-    
-        if (response.ok) {
+        if (result.success) {
           toast({
             title: "Message Sent!",
             description: "Thank you for contacting us. We will get back to you shortly.",
           });
           form.reset();
         } else {
-          throw new Error("Google Sheets submission failed.");
+           throw new Error("An unknown error occurred on the server.");
         }
       } catch (error) {
         console.error("Submit Error:", error);
         toast({
           variant: "destructive",
           title: "Uh oh! Something went wrong.",
-          description: "There was a problem submitting the form. Please try again.",
+          description: error instanceof Error ? error.message : "There was a problem with your request. Please try again.",
         });
       }
     }
