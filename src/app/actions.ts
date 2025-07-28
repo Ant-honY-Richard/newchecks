@@ -46,8 +46,6 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
     return { success: true, message: "Message sent successfully!" };
   } catch (error) {
     console.error("Error in handleContactForm:", error);
-    // Re-throw the error to be caught by the client-side component.
-    // This provides more specific feedback to the user/developer.
     if (error instanceof Error) {
         throw new Error(error.message);
     }
