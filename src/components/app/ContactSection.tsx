@@ -45,17 +45,21 @@ export default function ContactSection() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         try {
-            await handleContactForm(values);
-            toast({
-              title: "Message Sent!",
-              description: "Thank you for contacting us. We will get back to you shortly.",
-            })
-            form.reset();
+            const result = await handleContactForm(values);
+            if (result.success) {
+                toast({
+                  title: "Message Sent!",
+                  description: "Thank you for contacting us. We will get back to you shortly.",
+                })
+                form.reset();
+            }
         } catch (error) {
+            console.error("Submission error:", error);
+            const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
             toast({
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
-                description: "There was a problem with your request. Please try again.",
+                description: `There was a problem with your request: ${errorMessage}`,
             })
         }
     }
@@ -78,7 +82,7 @@ export default function ContactSection() {
                         <div>
                             <h4 className="font-semibold text-foreground">Phone</h4>
                             <a href="tel:+919606197196" className="text-muted-foreground hover:text-primary transition-colors">+91-9606197196</a><br />
-                            <a href="tel:+918105598343" className="text-muted-foreground hover:text-primary transition-colors">+91-8105598343</a>
+                            <a href="tel:+919035034640" className="text-muted-foreground hover:text-primary transition-colors">+91-9035034640</a>
                         </div>
                     </div>
                      <div className="flex items-start gap-4">
@@ -139,7 +143,9 @@ export default function ContactSection() {
                         </FormItem>
                     )}
                     />
-                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Send Message</Button>
+                    <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" disabled={form.formState.isSubmitting}>
+                      {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
                 </form>
             </Form>
             </div>
