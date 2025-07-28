@@ -1,3 +1,4 @@
+
 "use server";
 
 import { z } from "zod";
@@ -13,14 +14,18 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
     const validatedFields = contactFormSchema.safeParse(values);
 
     if (!validatedFields.success) {
-        throw new Error("Invalid form data.");
+        // This case should ideally be caught by client-side validation,
+        // but it's good practice to have server-side checks too.
+        throw new Error("Invalid form data provided.");
     }
     
     const { name, email, message } = validatedFields.data;
     const apiKey = process.env.RESEND_API_KEY;
 
     if (!apiKey) {
-        throw new Error("Server configuration error: RESEND_API_KEY is missing.");
+        // This is a server configuration error.
+        console.error("RESEND_API_KEY is missing from environment variables.");
+        throw new Error("Server configuration error: Email service is not set up.");
     }
     
     const resend = new Resend(apiKey);
@@ -43,23 +48,28 @@ export async function handleContactForm(values: z.infer<typeof contactFormSchema
         });
 
         if (error) {
+            // If Resend's API returns an error object, handle it here.
             console.error("Resend API Error:", error);
-            // Throw a more descriptive error from the Resend response
-            throw new Error(`Failed to send email. Resend error: ${error.message}`);
+            // Construct a more informative error message.
+            throw new Error(`Failed to send email. Resend error: ${error.message || 'Unknown Resend API error'}`);
         }
 
         if (!data || !data.id) {
-            console.error("Resend API Error: No ID returned", data);
-            throw new Error("Email not sent. Invalid response from Resend.");
+            // This case handles unexpected successful responses from Resend that lack an ID.
+            console.error("Resend API Error: No ID returned in the success response.", data);
+            throw new Error("Email not sent due to an invalid response from the email service.");
         }
 
-        console.log("Email sent successfully:", data);
+        console.log("Email sent successfully with ID:", data.id);
         return { success: true, message: "Message sent successfully!" };
 
     } catch (error) {
+        // This catches network errors or errors thrown from the checks above.
         console.error("Error in handleContactForm:", error);
-        // Ensure we always have a string message
-        const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
-        throw new Error(errorMessage);
+        // Ensure we always throw a standard Error object with a helpful message.
+        if (error instanceof Error) {
+            throw error; // Re-throw the specific error from above.
+        }
+        throw new Error("An unknown error occurred while sending the message.");
     }
 }
