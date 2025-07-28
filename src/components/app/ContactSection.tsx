@@ -52,14 +52,16 @@ export default function ContactSection() {
                   description: "Thank you for contacting us. We will get back to you shortly.",
                 })
                 form.reset();
+            } else {
+               throw new Error("An unknown error occurred on success path.");
             }
         } catch (error) {
             console.error("Submission error:", error);
-            const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
+            const errorMessage = error instanceof Error ? error.message : "There was a problem with your request. Please try again.";
             toast({
                 variant: "destructive",
                 title: "Uh oh! Something went wrong.",
-                description: `There was a problem with your request: ${errorMessage}`,
+                description: errorMessage,
             })
         }
     }
