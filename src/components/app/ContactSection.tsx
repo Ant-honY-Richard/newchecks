@@ -43,33 +43,34 @@ export default function ContactSection() {
     })
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        try {
-            const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(values),
-            });
+      try {
+        const formData = new FormData();
+        formData.append("name", values.name);
+        formData.append("email", values.email);
+        formData.append("message", values.message);
     
-            if (response.ok) {
-                toast({
-                  title: "Message Sent!",
-                  description: "Thank you for contacting us. We will get back to you shortly.",
-                });
-                form.reset();
-            } else {
-                throw new Error("Failed to submit to Google Sheets.");
-            }
-        } catch (error) {
-            console.error("Submission error:", error);
-            const errorMessage = error instanceof Error ? error.message : "There was a problem with your request. Please try again.";
-            toast({
-                variant: "destructive",
-                title: "Uh oh! Something went wrong.",
-                description: errorMessage,
-            });
+        const response = await fetch("https://script.google.com/macros/s/AKfycby8YOFw6qzpWmUDBLUAXQRmicrDOmtJ6955cvmLW7kfL1lNh8h9cbjQ4fyWl0TZN0336g/exec", {
+          method: "POST",
+          body: formData,
+        });
+    
+        if (response.ok) {
+          toast({
+            title: "Message Sent!",
+            description: "Thank you for contacting us. We will get back to you shortly.",
+          });
+          form.reset();
+        } else {
+          throw new Error("Google Sheets submission failed.");
         }
+      } catch (error) {
+        console.error("Submit Error:", error);
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem submitting the form. Please try again.",
+        });
+      }
     }
 
 
