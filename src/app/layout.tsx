@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import AdminProvider from '@/components/admin/AdminProvider'
 
 export const metadata: Metadata = {
-  title: 'Newchecks Solutions | AI Powered HR & Staffing Services',
+  title: 'Newchecks Solutions | HR & Staffing Services',
   description: 'Newchecks Solutions provides expert HR services including permanent staffing, contract staffing, outsourcing, payroll, and background verification.',
 };
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background">
         {children}
         <Toaster />
+        <AdminProvider />
       </body>
     </html>
   );

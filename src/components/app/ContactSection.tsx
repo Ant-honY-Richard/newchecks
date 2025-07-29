@@ -18,6 +18,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { handleContactForm } from "@/app/actions"
+import { db } from "@/lib/firebase"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -44,7 +46,28 @@ export default function ContactSection() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    // Log the form values to console for checking
+    console.log("Contact Form Values:", values);
+    console.log("Name:", values.name);
+    console.log("Email:", values.email);
+    console.log("Message:", values.message);
+    
     try {
+      // Save to Firestore
+      try {
+        await addDoc(collection(db, 'contacts'), {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+          timestamp: serverTimestamp(),
+          status: 'new'
+        });
+        console.log("Successfully saved to Firestore");
+      } catch (firestoreError) {
+        console.warn("Failed to save to Firestore:", firestoreError);
+      }
+
+      // Continue with original email handling
       const result = await handleContactForm(values)
 
       if (result.success) {
