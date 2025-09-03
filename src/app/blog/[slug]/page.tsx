@@ -2,8 +2,7 @@
 import { blogPosts, type BlogPost } from '@/lib/blog-data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Header from '@/components/app/Header';
-import Footer from '@/components/app/Footer';
+import PageLayout from '@/components/app/PageLayout';
 import { Clock, MessageSquare, Linkedin, Twitter, Facebook, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -23,17 +22,15 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Header />
-      <main className="flex-grow pt-24">
-        <div className="container mx-auto px-4 py-12">
-            <div className="max-w-4xl mx-auto">
-                <Button asChild variant="ghost" className="mb-8">
-                    <Link href="/#blog">
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back to Blog
-                    </Link>
-                </Button>
+    <PageLayout>
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto">
+          <Button asChild variant="ghost" className="mb-8">
+            <Link href="/blog">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Blog
+            </Link>
+          </Button>
 
                 <article>
                     <header className="mb-8">
@@ -83,8 +80,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 </Card>
             </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+    </PageLayout>
   );
 }

@@ -1,0 +1,250 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "Newchecks Solutions" [ref=e5] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e6]:
+          - link "Home" [ref=e7] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e8] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e9] [cursor=pointer]:
+            - /url: /services
+          - link "Approach" [ref=e10] [cursor=pointer]:
+            - /url: /approach
+          - link "Blog" [ref=e11] [cursor=pointer]:
+            - /url: /blog
+          - link "Contact Us" [ref=e12] [cursor=pointer]:
+            - /url: /contact
+        - link "Get A Quote" [ref=e14] [cursor=pointer]:
+          - /url: /contact
+          - text: Get A Quote
+          - img
+    - main [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e19]:
+          - paragraph [ref=e20]: Premium HR Solutions
+          - heading "Strategic Excellence in Human Resources" [level=1] [ref=e21]:
+            - text: Strategic
+            - generic [ref=e22]: Excellence
+            - text: in
+            - text: Human Resources
+          - paragraph [ref=e23]: Empowering businesses with expert services in Permanent Staffing, Contract Staffing, Outsourcing, Payroll, and Background Verification — delivering the right talent and seamless HR management to drive exceptional growth.
+          - generic [ref=e24]:
+            - link "Get Started" [ref=e25] [cursor=pointer]:
+              - /url: "#services"
+            - link "Learn More" [ref=e26] [cursor=pointer]:
+              - /url: "#about"
+        - generic [ref=e27]:
+          - generic [ref=e28]: Scroll
+          - img [ref=e29]
+      - generic [ref=e32]:
+        - heading "Discover Our Comprehensive HR Solutions" [level=2] [ref=e33]
+        - paragraph [ref=e34]: Newchecks Solutions offers a wide range of HR services designed to help your business thrive. Explore our offerings and find the perfect solution for your needs.
+        - generic [ref=e35]:
+          - link "Learn About Us" [ref=e36] [cursor=pointer]:
+            - /url: /about
+            - text: Learn About Us
+            - img
+          - link "Explore Services" [active] [ref=e37] [cursor=pointer]:
+            - /url: /services
+            - text: Explore Services
+            - img
+      - generic [ref=e39]:
+        - heading "Why Choose Newchecks Solutions" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img [ref=e44]
+            - heading "Expert Team" [level=3] [ref=e49]
+            - paragraph [ref=e50]: Our seasoned HR professionals bring years of industry expertise to solve your workforce challenges.
+          - generic [ref=e51]:
+            - img [ref=e53]
+            - heading "Proven Results" [level=3] [ref=e56]
+            - paragraph [ref=e57]: Track record of helping 500+ companies optimize their HR operations and achieve business goals.
+          - generic [ref=e58]:
+            - img [ref=e60]
+            - heading "Compliance First" [level=3] [ref=e62]
+            - paragraph [ref=e63]: Ensure 100% regulatory compliance with our thorough understanding of labor laws and regulations.
+          - generic [ref=e64]:
+            - img [ref=e66]
+            - heading "Quality Assured" [level=3] [ref=e69]
+            - paragraph [ref=e70]: ISO certified processes and rigorous quality checks ensure exceptional service delivery every time.
+      - generic [ref=e72]:
+        - heading "Our Core Services" [level=2] [ref=e73]
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic [ref=e79]:
+              - heading "Permanent Staffing" [level=3] [ref=e80]
+              - paragraph [ref=e81]: End-to-end recruitment solutions to help you find and hire the best talent for long-term positions.
+            - generic [ref=e85]:
+              - heading "Contract Staffing" [level=3] [ref=e86]
+              - paragraph [ref=e87]: Flexible workforce solutions for project-based and temporary staffing requirements.
+            - generic [ref=e91]:
+              - heading "HR Outsourcing" [level=3] [ref=e92]
+              - paragraph [ref=e93]: Complete HR function management allowing you to focus on your core business activities.
+          - generic [ref=e96]:
+            - img "HR services overview" [ref=e97]
+            - generic [ref=e99]:
+              - paragraph [ref=e100]: "Aspect Ratio: 4/3"
+              - paragraph [ref=e101]: Professional HR team providing comprehensive staffing, outsourcing, and recruitment services to diverse business clients
+        - link "View All Services" [ref=e103] [cursor=pointer]:
+          - /url: /services
+          - text: View All Services
+          - img
+      - generic [ref=e105]:
+        - heading "Success Stories" [level=2] [ref=e106]
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - generic [ref=e109]: 85%
+            - heading "Faster Hiring" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Average reduction in time-to-hire for our permanent staffing clients.
+          - generic [ref=e112]:
+            - generic [ref=e113]: 500+
+            - heading "Happy Clients" [level=3] [ref=e114]
+            - paragraph [ref=e115]: Companies trust us with their HR operations across various industries.
+          - generic [ref=e116]:
+            - generic [ref=e117]: 95%
+            - heading "Client Retention" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Long-term partnerships built on consistent service excellence and results.
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - heading "Ready to Transform Your HR Operations?" [level=2] [ref=e124]
+          - paragraph [ref=e125]: Partner with Newchecks Solutions and experience the difference professional HR services can make. Get started with a free consultation and discover customized solutions for your business needs.
+          - generic [ref=e126]:
+            - link "Get Free Consultation" [ref=e127] [cursor=pointer]:
+              - /url: /contact
+              - text: Get Free Consultation
+              - img
+            - link "Learn Our Approach" [ref=e128] [cursor=pointer]:
+              - /url: /approach
+              - text: Learn Our Approach
+              - img
+        - generic [ref=e131]:
+          - img "Free consultation call" [ref=e132]
+          - generic [ref=e134]:
+            - paragraph [ref=e135]: "Aspect Ratio: 16/10"
+            - paragraph [ref=e136]: Professional consultation meeting with HR experts discussing business needs, strategy planning, and customized solutions
+      - generic [ref=e137]:
+        - generic [ref=e139]:
+          - heading "Trusted by Industry Leaders" [level=2] [ref=e140]
+          - paragraph [ref=e141]: Partnering with 100+ organizations to deliver exceptional HR solutions
+        - generic [ref=e144]:
+          - img "ElectricPe" [ref=e146]
+          - img "L&T" [ref=e148]
+          - img "Lynk" [ref=e150]
+          - img "Paytm" [ref=e152]
+          - img "Swiggy" [ref=e154]
+          - img "Udaan" [ref=e156]
+          - img "Zepto" [ref=e158]
+          - img "ElectricPe" [ref=e160]
+          - img "L&T" [ref=e162]
+          - img "Lynk" [ref=e164]
+          - img "Paytm" [ref=e166]
+          - img "Swiggy" [ref=e168]
+          - img "Udaan" [ref=e170]
+          - img "Zepto" [ref=e172]
+          - img "ElectricPe" [ref=e174]
+          - img "L&T" [ref=e176]
+          - img "Lynk" [ref=e178]
+          - img "Paytm" [ref=e180]
+          - img "Swiggy" [ref=e182]
+          - img "Udaan" [ref=e184]
+          - img "Zepto" [ref=e186]
+          - img "ElectricPe" [ref=e188]
+          - img "L&T" [ref=e190]
+          - img "Lynk" [ref=e192]
+          - img "Paytm" [ref=e194]
+          - img "Swiggy" [ref=e196]
+          - img "Udaan" [ref=e198]
+          - img "Zepto" [ref=e200]
+    - contentinfo [ref=e201]:
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - link "Newchecks Solutions" [ref=e205] [cursor=pointer]:
+            - /url: "#home"
+          - paragraph [ref=e206]: Your trusted partner for Permanent Staffing, Contract Staffing, Outsourcing, Payroll, and Background Verification services. Empowering businesses with tailored HR solutions.
+          - paragraph [ref=e207]: "\"we work by your trust\""
+          - generic [ref=e208]:
+            - link "Facebook" [ref=e209] [cursor=pointer]:
+              - /url: "#"
+              - img
+            - link "Instagram" [ref=e210] [cursor=pointer]:
+              - /url: "#"
+              - img
+            - link "Twitter" [ref=e211] [cursor=pointer]:
+              - /url: "#"
+              - img
+        - generic [ref=e212]:
+          - heading "Our Links" [level=4] [ref=e213]
+          - list [ref=e214]:
+            - listitem [ref=e215]:
+              - link "Home" [ref=e216] [cursor=pointer]:
+                - /url: "#home"
+            - listitem [ref=e217]:
+              - link "About Us" [ref=e218] [cursor=pointer]:
+                - /url: "#about"
+            - listitem [ref=e219]:
+              - link "Services" [ref=e220] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e221]:
+              - link "Blog" [ref=e222] [cursor=pointer]:
+                - /url: "#blog"
+            - listitem [ref=e223]:
+              - link "Contact" [ref=e224] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e225]:
+          - heading "Our Services" [level=4] [ref=e226]
+          - list [ref=e227]:
+            - listitem [ref=e228]:
+              - link "HR Consultancy" [ref=e229] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e230]:
+              - link "Permanent Staffing" [ref=e231] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e232]:
+              - link "Contract Staffing" [ref=e233] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e234]:
+              - link "Outsourcing" [ref=e235] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e236]:
+              - link "Payroll Services" [ref=e237] [cursor=pointer]:
+                - /url: "#services"
+            - listitem [ref=e238]:
+              - link "Background Verification" [ref=e239] [cursor=pointer]:
+                - /url: "#services"
+        - generic [ref=e240]:
+          - heading "Other Links" [level=4] [ref=e241]
+          - list [ref=e242]:
+            - listitem [ref=e243]:
+              - link "FAQ" [ref=e244] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e245]:
+              - link "Portfolio" [ref=e246] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e247]:
+              - link "Privacy Policy" [ref=e248] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e249]:
+              - link "Terms & Conditions" [ref=e250] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e251]:
+              - link "Support" [ref=e252] [cursor=pointer]:
+                - /url: "#"
+      - paragraph [ref=e255]:
+        - text: © 2025
+        - link "Newchecks Solutions" [ref=e256] [cursor=pointer]:
+          - /url: "#"
+        - text: . All Rights Reserved.
+    - button "Go to top":
+      - img
+  - region "Notifications (F8)":
+    - list
+  - alert [ref=e257]
+  - button "Open Next.js Dev Tools" [ref=e263] [cursor=pointer]:
+    - img [ref=e264] [cursor=pointer]
+```

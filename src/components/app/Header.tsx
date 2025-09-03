@@ -15,12 +15,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#approach', label: 'Approach' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#contact', label: 'Contact Us' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/approach', label: 'Approach' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 export default function Header() {
@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", isScrolled ? "bg-background/80 backdrop-blur-sm border-b border-border" : "bg-transparent")}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#home" className="flex items-center gap-2 text-2xl font-bold text-foreground font-headline">
+        <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-foreground font-headline">
           Newchecks Solutions
         </Link>
 
@@ -52,7 +52,7 @@ export default function Header() {
         
         <div className="flex items-center gap-4">
             <Button asChild className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="#contact">
+                <Link href="/contact">
                     Get A Quote
                     <ChevronRight className="h-4 w-4" />
                 </Link>
@@ -69,7 +69,7 @@ export default function Header() {
                     <SheetContent side="right" className="w-[300px] bg-background">
                         <SheetHeader className="mb-8">
                         <SheetTitle>
-                            <Link href="#home" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-2xl font-bold text-foreground font-headline">
+                            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2 text-2xl font-bold text-foreground font-headline">
                                 Newchecks Solutions
                             </Link>
                         </SheetTitle>
@@ -81,7 +81,7 @@ export default function Header() {
                             </Link>
                         ))}
                         <Button asChild className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                            <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                                 Get A Quote
                                 <ChevronRight className="h-4 w-4" />
                             </Link>

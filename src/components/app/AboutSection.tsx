@@ -57,14 +57,15 @@ export default function AboutSection() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="w-full h-full flex justify-center items-center">
-             <Image
-              src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1753452674/662a3f9c-6c2a-4c85-82f4-bced987abe26_jphi8e.png"
-              width={700}
-              height={532}
-              alt="Team discussing HR strategies"
-              className="rounded-lg shadow-2xl object-cover"
-              data-ai-hint="team business meeting"
-            />
+            <div className="relative w-full aspect-[16/10] max-w-[700px] rounded-lg shadow-2xl overflow-hidden">
+              <Image
+                src="https://res.cloudinary.com/djxoeyk1a/image/upload/v1753452674/662a3f9c-6c2a-4c85-82f4-bced987abe26_jphi8e.png"
+                alt="Professional consultation meeting with HR experts discussing business needs, strategy planning, and customized solutions"
+                fill
+                className="object-cover"
+                sizes="(max-width: 668px) 100vw, 50vw"
+              />
+            </div>
           </div>
           <div>
             <h2 className="text-4xl font-headline font-bold mb-6 section-title underline">Why Choose Newchecks Solutions</h2>
