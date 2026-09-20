@@ -53,7 +53,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-xl font-bold mb-2">Phone</h3>
                     <p className="text-muted-foreground">
-                      +91-9606197196<br />
+                      +91-8105598343<br />
                       +91-9035034640
                     </p>
                   </div>

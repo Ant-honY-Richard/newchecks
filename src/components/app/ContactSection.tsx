@@ -112,8 +112,8 @@ export default function ContactSection() {
                 <Phone className="w-6 h-6 text-primary mt-1" />
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <a href="tel:+919606197196" className="text-muted-foreground hover:text-primary transition-colors">
-                    +91-9606197196
+                  <a href="tel:+918105598343" className="text-muted-foreground hover:text-primary transition-colors">
+                    +91-8105598343
                   </a>
                   <br />
                   <a href="tel:+919035034640" className="text-muted-foreground hover:text-primary transition-colors">
